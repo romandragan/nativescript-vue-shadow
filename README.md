@@ -4,9 +4,9 @@
 [![Downloads][downloads-image]][npm-url]
 [![Twitter Follow][twitter-image]][twitter-url]
 
-[npm-image]: http://img.shields.io/npm/v/nativescript-vue-shadow.svg
-[npm-url]: https://npmjs.org/package/nativescript-vue-shadow
-[downloads-image]: http://img.shields.io/npm/dt/nativescript-vue-shadow.svg
+[npm-image]: http://img.shields.io/npm/v/nativescript-vue-shadow-ns-7.svg
+[npm-url]: https://npmjs.org/package/nativescript-vue-shadow-ns-7
+[downloads-image]: http://img.shields.io/npm/dt/nativescript-vue-shadow-ns-7.svg
 [twitter-image]: https://img.shields.io/twitter/follow/Jawa_the_Hutt.svg?style=social&label=Jawa_the_hutt
 [twitter-url]: https://twitter.com/Jawa_the_Hutt
 
@@ -17,7 +17,7 @@ This repo is a port to Nativescript-Vue of @JoshDSommer's [NativeScript Angular 
 From the command prompt go to your app's root folder and execute:
 
 ``` bash
-npm install nativescript-vue-shadow
+npm install nativescript-vue-shadow-ns-7
 ```
 
 ## Demo
@@ -38,7 +38,7 @@ However, running this on Android you will require the SDK to be greater or equal
 #### Import the Directive into main.js
 
 ```typescript
-import NSVueShadow from 'nativescript-vue-shadow'
+import NSVueShadow from 'nativescript-vue-shadow-ns-7'
 Vue.use(NSVueShadow)
 ```
 
@@ -50,7 +50,7 @@ Simple attribute for `v-shadow`:
 <Label v-shadow="2"></Label>
 ```
 
-You can property bind it in your `template` tag. This can be a `string`, `number` or `object` ( [AndroidData](https://github.com/jawa-the-hutt/nativescript-vue-shadow/blob/master/src/common/android-data.model.ts) \| [IOSData](https://github.com/jawa-the-hutt/nativescript-vue-shadow/blob/master/src/common/ios-data.model.ts) ):
+You can property bind it in your `template` tag. This can be a `string`, `number` or `object` ( [AndroidData](https://github.com/romandragan/nativescript-vue-shadow-ns-7/blob/master/src/common/android-data.model.ts) \| [IOSData](https://github.com/romandragan/nativescript-vue-shadow-ns-7/blob/master/src/common/ios-data.model.ts) ):
 
 ```html
 <Label v-shadow="myCustomData"></Label>
@@ -59,7 +59,7 @@ You can property bind it in your `template` tag. This can be a `string`, `number
 Then in your `script` tag you can do something like this where we bind to the object:
 
 ```typescript
-import { AndroidData, ShapeEnum } from "nativescript-vue-shadow";
+import { AndroidData, ShapeEnum } from "nativescript-vue-shadow-ns-7";
 // ...
 export default class MyComponent extends Vue {
   private myCustomData: AndroidData = {
@@ -71,7 +71,7 @@ export default class MyComponent extends Vue {
 }
 ```
 
-You can also provide details directly in your markup by using the `v-shadow` directive with an explicit object  ( [AndroidData](https://github.com/jawa-the-hutt/nativescript-vue-shadow/blob/master/src/common/android-data.model.ts) \| [IOSData](https://github.com/jawa-the-hutt/nativescript-vue-shadow/blob/master/src/common/ios-data.model.ts) ):
+You can also provide details directly in your markup by using the `v-shadow` directive with an explicit object  ( [AndroidData](https://github.com/romandragan/nativescript-vue-shadow-ns-7/blob/master/src/common/android-data.model.ts) \| [IOSData](https://github.com/romandragan/nativescript-vue-shadow-ns-7/blob/master/src/common/ios-data.model.ts) ):
 
 ```html
 <Label v-shadow="{ elevation: elevation, shape: shape.RECTANGLE, bgcolor: '#006968', cornerRadius: 15 }"></Label>
@@ -87,7 +87,7 @@ The table below list and describes all possible attributes as well as show which
 
 | Attribute            | Type             | Default | Platform | Description    |
 | -------------------- | ---------------- | -------- | ---------- |--------------- |
-| elevation            | number \| string |          | both     | Determines the elevation of the view from the surface. It does all shadow related calculations. You might want to have a look at [this enum](https://github.com/jawa-the-hutt/nativescript-vue-shadow/blob/master/src/common/elevation.enum.ts) of standard material design elevations. FYI, it's calculated in DIPs (or DPs, _density independent pixels_) on Android, or PTs (_points_) on iOS. |
+| elevation            | number \| string |          | both     | Determines the elevation of the view from the surface. It does all shadow related calculations. You might want to have a look at [this enum](https://github.com/romandragan/nativescript-vue-shadow-ns-7/blob/master/src/common/elevation.enum.ts) of standard material design elevations. FYI, it's calculated in DIPs (or DPs, _density independent pixels_) on Android, or PTs (_points_) on iOS. |
 | pressedElevation     | number \| string |          | Android  | Determines the view's elevation when on pressed state.    |
 | shape                | string => `'RECTANGLE'` \| `'OVAL'` \| `'RING'` \| `'LINE'` | `'RECTANGLE'` | Android  | Determines the shape of the view and overrides its format styles. |
 | bgcolor              | string (#RGB)    |          | Android  | Determines view's background color and overrides its previous background. If not set, the previous background is used. **NOTE:** setting the background to transparent is known to cause issues on Android (the shadow may overlap the background) |
@@ -137,7 +137,7 @@ If you don't even want to check it out every time you have to shadow an element,
 #### Component
 
 ```typescript
-import { Elevation } from "nativescript-vue-shadow";
+import { Elevation } from "nativescript-vue-shadow-ns-7";
 
 export default class MyComponent extends Vue {
   // ...

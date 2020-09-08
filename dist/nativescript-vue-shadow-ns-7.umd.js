@@ -1,4 +1,4 @@
-(function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports,require('nativescript-vue'),require('tns-core-modules/platform'),require('tns-core-modules/color'),require('tns-core-modules/ui/page/page'),require('tns-core-modules/ui/core/weak-event-listener')):typeof define==='function'&&define.amd?define(['exports','nativescript-vue','tns-core-modules/platform','tns-core-modules/color','tns-core-modules/ui/page/page','tns-core-modules/ui/core/weak-event-listener'],f):(g=g||self,f(g.NativescriptVueshadow={},g.vue,g.platform,g.color,g.page,g.weakEventListener));}(this,function(exports, Vue, platform, color, page, weakEventListener){'use strict';Vue=Vue&&Vue.hasOwnProperty('default')?Vue['default']:Vue;(function (ShapeEnum) {
+(function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports,require('nativescript-vue'),require('@nativescript/core/platform'),require('@nativescript/core/color'),require('@nativescript/core/ui'),require('@nativescript/core'),require('@nativescript/core/ui/core/weak-event-listener')):typeof define==='function'&&define.amd?define(['exports','nativescript-vue','@nativescript/core/platform','@nativescript/core/color','@nativescript/core/ui','@nativescript/core','@nativescript/core/ui/core/weak-event-listener'],f):(g=g||self,f(g.NativescriptVueshadow={},g.vue,g.platform,g.color,g.ui,g.core,g.weakEventListener));}(this,function(exports, Vue, platform, color, ui, core, weakEventListener){'use strict';Vue=Vue&&Vue.hasOwnProperty('default')?Vue['default']:Vue;(function (ShapeEnum) {
     ShapeEnum["RECTANGLE"] = "RECTANGLE";
     ShapeEnum["OVAL"] = "OVAL";
     ShapeEnum["RING"] = "RING";
@@ -69,10 +69,10 @@ class Shadow {
             }
             const outerRadii = Array.create("float", 8);
             if (data.cornerRadius === undefined) {
-                outerRadii[0] = outerRadii[1] = page.Length.toDevicePixels(tnsView.borderTopLeftRadius, 0);
-                outerRadii[2] = outerRadii[3] = page.Length.toDevicePixels(tnsView.borderTopRightRadius, 0);
-                outerRadii[4] = outerRadii[5] = page.Length.toDevicePixels(tnsView.borderBottomRightRadius, 0);
-                outerRadii[6] = outerRadii[7] = page.Length.toDevicePixels(tnsView.borderBottomLeftRadius, 0);
+                outerRadii[0] = outerRadii[1] = ui.Length.toDevicePixels(tnsView.borderTopLeftRadius, 0);
+                outerRadii[2] = outerRadii[3] = ui.Length.toDevicePixels(tnsView.borderTopRightRadius, 0);
+                outerRadii[4] = outerRadii[5] = ui.Length.toDevicePixels(tnsView.borderBottomRightRadius, 0);
+                outerRadii[6] = outerRadii[7] = ui.Length.toDevicePixels(tnsView.borderBottomLeftRadius, 0);
             }
             else {
                 java.util.Arrays.fill(outerRadii, Shadow.androidDipToPx(nativeView, data.cornerRadius));
@@ -159,7 +159,7 @@ class Shadow {
                 parseFloat(String(data.shadowRadius)) :
                 0.66 * elevation - 0.5;
         nativeView.layer.shouldRasterize = data.rasterize;
-        nativeView.layer.rasterizationScale = platform.screen.mainScreen.scale;
+        nativeView.layer.rasterizationScale = platform.Screen.mainScreen.scale;
         let shadowPath = null;
         if (data.useShadowPath) {
             shadowPath = UIBezierPath.bezierPathWithRoundedRectCornerRadius(nativeView.bounds, nativeView.layer.shadowRadius).cgPath;
@@ -260,8 +260,8 @@ Shadow.DEFAULT_PRESSED_Z = 4;class NativeShadowDirective {
     }
     bindEvents() {
         if (!this.eventsBound) {
-            weakEventListener.addWeakEventListener(this.el._nativeView, page.View.loadedEvent, this.load, this);
-            weakEventListener.addWeakEventListener(this.el._nativeView, page.View.unloadedEvent, this.unload, this);
+            weakEventListener.addWeakEventListener(this.el._nativeView, core.View.loadedEvent, this.load, this);
+            weakEventListener.addWeakEventListener(this.el._nativeView, core.View.unloadedEvent, this.unload, this);
             this.eventsBound = true;
             if (this.el._nativeView.isLoaded) {
                 this.load();
@@ -270,8 +270,8 @@ Shadow.DEFAULT_PRESSED_Z = 4;class NativeShadowDirective {
     }
     unbindEvents() {
         if (this.eventsBound) {
-            weakEventListener.removeWeakEventListener(this.el._nativeView, page.View.loadedEvent, this.load, this);
-            weakEventListener.removeWeakEventListener(this.el._nativeView, page.View.unloadedEvent, this.unload, this);
+            weakEventListener.removeWeakEventListener(this.el._nativeView, core.View.loadedEvent, this.load, this);
+            weakEventListener.removeWeakEventListener(this.el._nativeView, core.View.unloadedEvent, this.unload, this);
             this.eventsBound = false;
         }
     }

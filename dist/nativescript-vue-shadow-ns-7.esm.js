@@ -1,8 +1,9 @@
 import Vue from 'nativescript-vue';
-import { isAndroid, screen, isIOS } from 'tns-core-modules/platform';
-import { Color } from 'tns-core-modules/color';
-import { Length, View } from 'tns-core-modules/ui/page/page';
-import { addWeakEventListener, removeWeakEventListener } from 'tns-core-modules/ui/core/weak-event-listener';
+import { isAndroid, Screen, isIOS } from '@nativescript/core/platform';
+import { Color } from '@nativescript/core/color';
+import { Length } from '@nativescript/core/ui';
+import { View } from '@nativescript/core';
+import { addWeakEventListener, removeWeakEventListener } from '@nativescript/core/ui/core/weak-event-listener';
 
 var ShapeEnum;
 (function (ShapeEnum) {
@@ -168,7 +169,7 @@ class Shadow {
                 parseFloat(String(data.shadowRadius)) :
                 0.66 * elevation - 0.5;
         nativeView.layer.shouldRasterize = data.rasterize;
-        nativeView.layer.rasterizationScale = screen.mainScreen.scale;
+        nativeView.layer.rasterizationScale = Screen.mainScreen.scale;
         let shadowPath = null;
         if (data.useShadowPath) {
             shadowPath = UIBezierPath.bezierPathWithRoundedRectCornerRadius(nativeView.bounds, nativeView.layer.shadowRadius).cgPath;

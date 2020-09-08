@@ -40,20 +40,16 @@ const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
   "nativescript-vue",
-  "tns-core-modules/color",
-  "tns-core-modules/platform",
-  "tns-core-modules/ui/page/page",
-  "tns-core-modules/ui/core/weak-event-listener",
-  "'tns-core-modules/ui/layouts/stack-layout"
+  "@nativescript/core",
+  "@nativescript/core/color",
+  "@nativescript/core/platform",
+  "@nativescript/core/ui",
+  "@nativescript/core/ui/core/weak-event-listener"
 ];
 const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
-  "nativescript-vue": 'vue',
-  "tns-core-modules/color": 'color',
-  "tns-core-modules/platform": 'platform',
-  "tns-core-modules/ui/page/page": 'page',
-  "tns-core-modules/ui/core/weak-event-listener" : 'weakEventListener',
+  "nativescript-vue": 'vue'
 };
 
 // Customize configs for individual targets
@@ -63,7 +59,7 @@ if (!argv.format || argv.format === "es") {
     ...baseConfig,
     external,
     output: {
-      file: "dist/nativescript-vue-shadow.esm.js",
+      file: "dist/nativescript-vue-shadow-ns-7.esm.js",
       format: "esm",
       exports: "named"
     },
@@ -85,7 +81,7 @@ if (!argv.format || argv.format === "umd") {
     external,
     output: {
       compact: true,
-      file: "dist/nativescript-vue-shadow.umd.js",
+      file: "dist/nativescript-vue-shadow-ns-7.umd.js",
       format: "umd",
       name: "NativescriptVueshadow",
       exports: "named",
@@ -109,7 +105,7 @@ if (!argv.format || argv.format === "iife") {
     external,
     output: {
       compact: true,
-      file: "dist/nativescript-vue-shadow.js",
+      file: "dist/nativescript-vue-shadow-ns-7.js",
       format: "iife",
       name: "NativescriptVueshadow",
       exports: "named",

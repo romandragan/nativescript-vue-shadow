@@ -30,7 +30,7 @@ let GlobalVue!: VueConstructor;
 if (typeof window !== "undefined" && typeof (window as any).Vue !== 'undefined') {
   GlobalVue = (window as any).Vue;
 } else if (typeof global !== "undefined" && typeof global['Vue'] !== 'undefined') {
-  GlobalVue = global['Vue'];
+  GlobalVue = global['Vue'] as any;
 }
 if (GlobalVue) {
   GlobalVue.use(NSVueShadow);
