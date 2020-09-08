@@ -7,8 +7,8 @@
 [npm-image]: http://img.shields.io/npm/v/nativescript-vue-shadow-ns-7.svg
 [npm-url]: https://npmjs.org/package/nativescript-vue-shadow-ns-7
 [downloads-image]: http://img.shields.io/npm/dt/nativescript-vue-shadow-ns-7.svg
-[twitter-image]: https://img.shields.io/twitter/follow/Jawa_the_Hutt.svg?style=social&label=Jawa_the_hutt
-[twitter-url]: https://twitter.com/Jawa_the_Hutt
+[twitter-image]: https://img.shields.io/twitter/follow/romandrahan.svg?style=social&label=romandrahan
+[twitter-url]: https://twitter.com/romandrahan
 
 This repo is a port to Nativescript-Vue of @JoshDSommer's [NativeScript Angular Shadow Directive project](https://github.com/JoshDSommer/nativescript-ngx-shadow).  As such, a good portion of the code is inspired by it, but many changes were made to fit into how Vue does Directives.
 
